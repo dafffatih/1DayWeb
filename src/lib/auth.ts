@@ -23,6 +23,7 @@ export function getAuth(env: { DB: D1Database, BETTER_AUTH_SECRET: string, BETTE
             }
         },
         emailOTP: {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unused-vars
             async sendVerificationOTP({ email, otp, type, request }: { email: string; otp: string; type: string; request?: any }) {
                 // Send the OTP via Resend
                 const response = await fetch("https://api.resend.com/emails", {

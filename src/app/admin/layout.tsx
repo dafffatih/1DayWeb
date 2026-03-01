@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Zap, LayoutDashboard, MessageSquare, Image, Settings, LogOut } from "lucide-react";
+import { Zap, LayoutDashboard, LogOut } from "lucide-react";
 
 export default function AdminLayout({
     children,

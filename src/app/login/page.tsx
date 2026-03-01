@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { Zap, Loader2, ArrowRight } from "lucide-react";
 import { signIn } from "@/lib/auth-client";
@@ -12,7 +11,6 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function LoginPage() {
-  const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -121,7 +119,7 @@ export default function LoginPage() {
           </CardContent>
           <CardFooter>
             <p className="text-center text-sm text-zinc-400 w-full mt-2">
-              Don't have an account?{" "}
+              Don&apos;t have an account?{" "}
               <Link href="/register" className="text-blue-400 hover:text-blue-300 font-medium">
                 Sign up
               </Link>

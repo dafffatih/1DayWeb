@@ -6,12 +6,14 @@ export const runtime = "edge";
 
 export async function GET(request: NextRequest) {
     const env = getRequestContext().env;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const auth = getAuth(env as any);
     return auth.handler(request);
 }
 
 export async function POST(request: NextRequest) {
     const env = getRequestContext().env;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const auth = getAuth(env as any);
     return auth.handler(request);
 }

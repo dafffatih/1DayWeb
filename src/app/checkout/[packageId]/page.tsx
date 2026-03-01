@@ -88,7 +88,7 @@ export default function CheckoutPage({ params }: { params: Promise<{ packageId: 
                                     <div className="space-y-2">
                                         <Label htmlFor="email" className="text-zinc-300">Email Address</Label>
                                         <Input id="email" type="email" required className="bg-zinc-950 border-zinc-800 text-white placeholder:text-zinc-600 focus:border-blue-500" placeholder="john@company.com" />
-                                        <p className="text-xs text-zinc-500">We'll use this to create your dashboard account.</p>
+                                        <p className="text-xs text-zinc-500">We&apos;ll use this to create your dashboard account.</p>
                                     </div>
 
                                     <div className="space-y-2">
@@ -162,7 +162,7 @@ export default function CheckoutPage({ params }: { params: Promise<{ packageId: 
 
                                     <div className="bg-blue-900/10 border border-blue-900/30 p-4 rounded-lg flex gap-3 text-sm text-blue-200">
                                         <ShieldCheck className="w-5 h-5 shrink-0 text-blue-400" />
-                                        <p>Money-back guarantee if we don't deliver within the specified timeframe.</p>
+                                        <p>Money-back guarantee if we don&apos;t deliver within the specified timeframe.</p>
                                     </div>
                                 </CardContent>
                                 <CardFooter className="flex flex-col gap-3">

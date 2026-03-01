@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 
 const projects = [
     {
@@ -39,7 +38,7 @@ export default function Portfolio() {
                     >
                         <h2 className="text-4xl md:text-5xl font-bold mb-4">Recent <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500">Work</span></h2>
                         <p className="text-xl text-zinc-400">
-                            Take a look at what we've built recently. High quality, delivered at record speed.
+                            Take a look at what we&apos;ve built recently. High quality, delivered at record speed.
                         </p>
                     </motion.div>
                 </div>

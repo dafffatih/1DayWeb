@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Send, Clock, User, MessageCircle, FileUp, Check } from "lucide-react";
+import { Send, Clock, User, FileUp } from "lucide-react";
 
 const ORODERS = [
     { id: "ORD-001", client: "Acme Corp", pkg: "3-Day Growth", status: "In Progress", due: "Tomorrow" },
@@ -37,8 +37,6 @@ export default function AdminDashboard() {
     const handleStatusChange = (orderId: string, newStatus: string) => {
         setOrders(orders.map(o => o.id === orderId ? { ...o, status: newStatus } : o));
     };
-
-    const pendingCount = orders.filter(o => o.status === "Pending").length;
 
     return (
         <div className="space-y-8">
