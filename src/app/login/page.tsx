@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { Zap, Loader2, ArrowRight } from "lucide-react";
+import { signIn } from "@/lib/auth-client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -14,15 +15,18 @@ export default function LoginPage() {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    // Email OTP login will be implemented here
+    alert("Email OTP login not fully implemented yet in UI. Please use Google Login.");
+  };
+
+  const handleGoogleLogin = async () => {
     setIsLoading(true);
-    
-    // Simulate login
-    setTimeout(() => {
-      setIsLoading(false);
-      router.push("/dashboard");
-    }, 1500);
+    await signIn.social({
+      provider: "google",
+      callbackURL: "/dashboard"
+    });
   };
 
   return (
@@ -53,11 +57,11 @@ export default function LoginPage() {
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="space-y-2">
                 <Label htmlFor="email" className="text-zinc-300">Email</Label>
-                <Input 
-                  id="email" 
-                  type="email" 
-                  placeholder="m@example.com" 
-                  required 
+                <Input
+                  id="email"
+                  type="email"
+                  placeholder="m@example.com"
+                  required
                   className="bg-zinc-950/50 border-zinc-800 text-white placeholder:text-zinc-600 h-12 focus-visible:ring-blue-500"
                 />
               </div>
@@ -68,10 +72,10 @@ export default function LoginPage() {
                     Forgot password?
                   </Link>
                 </div>
-                <Input 
-                  id="password" 
-                  type="password" 
-                  required 
+                <Input
+                  id="password"
+                  type="password"
+                  required
                   className="bg-zinc-950/50 border-zinc-800 text-white placeholder:text-zinc-600 h-12 focus-visible:ring-blue-500"
                 />
               </div>
@@ -83,7 +87,7 @@ export default function LoginPage() {
                 )}
               </Button>
             </form>
-            
+
             <div className="relative my-8">
               <div className="absolute inset-0 flex items-center">
                 <span className="w-full border-t border-zinc-800" />
@@ -93,7 +97,7 @@ export default function LoginPage() {
               </div>
             </div>
 
-            <Button variant="outline" type="button" className="w-full h-12 bg-transparent border-zinc-700 text-white hover:bg-zinc-800" disabled={isLoading}>
+            <Button onClick={handleGoogleLogin} variant="outline" type="button" className="w-full h-12 bg-transparent border-zinc-700 text-white hover:bg-zinc-800" disabled={isLoading}>
               <svg className="mr-2 h-4 w-4" viewBox="0 0 24 24">
                 <path
                   d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"

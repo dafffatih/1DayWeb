@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { Zap, Loader2, UserPlus } from "lucide-react";
+import { signIn } from "@/lib/auth-client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -14,15 +15,18 @@ export default function RegisterPage() {
     const router = useRouter();
     const [isLoading, setIsLoading] = useState(false);
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        setIsLoading(true);
+        // Email OTP signup will be implemented here
+        alert("Email OTP registration not fully implemented yet in UI. Please use Google Login.");
+    };
 
-        // Simulate registration
-        setTimeout(() => {
-            setIsLoading(false);
-            router.push("/dashboard");
-        }, 1500);
+    const handleGoogleLogin = async () => {
+        setIsLoading(true);
+        await signIn.social({
+            provider: "google",
+            callbackURL: "/dashboard"
+        });
     };
 
     return (
@@ -108,7 +112,7 @@ export default function RegisterPage() {
                             </div>
                         </div>
 
-                        <Button variant="outline" type="button" className="w-full h-12 bg-transparent border-zinc-700 text-white hover:bg-zinc-800" disabled={isLoading}>
+                        <Button onClick={handleGoogleLogin} variant="outline" type="button" className="w-full h-12 bg-transparent border-zinc-700 text-white hover:bg-zinc-800" disabled={isLoading}>
                             <svg className="mr-2 h-4 w-4" viewBox="0 0 24 24">
                                 <path
                                     d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
